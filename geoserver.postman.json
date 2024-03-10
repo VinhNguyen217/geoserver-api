@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "3e2010d8-f919-4c88-81b9-5533c0e37129",
+		"name": "geoserver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14614171"
+	},
+	"item": [
+		{
+			"name": "workspace",
+			"item": [
+				{
+					"name": "get list of workspaces",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add a new workspace",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"workspace\": {\r\n        \"name\": \"vinhnd\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/geoserver/rest/workspaces?default=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces"
+							],
+							"query": [
+								{
+									"key": "default",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a layer group",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/gis?quietOnNotFound=false",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"gis"
+							],
+							"query": [
+								{
+									"key": "quietOnNotFound",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a workspace",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"workspace\": {\r\n        \"name \": \"gis123\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/gis",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"gis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete workspace",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/vinhnd?recurse=false",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"vinhnd"
+							],
+							"query": [
+								{
+									"key": "recurse",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "store",
+			"item": [
+				{
+					"name": "add postgis database store",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataStore\": {\r\n    \"name\": \"vinhdz\",\r\n    \"connectionParameters\": {\r\n      \"host\": \"localhost\",\r\n      \"port\": 5432,\r\n      \"database\": \"gis_test\",\r\n      \"user\": \"postgres\",\r\n      \"passwd\": \"postgres\",\r\n      \"dbtype\": \"postgis\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/string/datastores",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"string",
+								"datastores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list a PostGIS database store details",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "geoserver",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/string/datastores/vinhdz",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"string",
+								"datastores",
+								"vinhdz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publish a table from an existing PostGIS store",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{host}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"featureType\": {\r\n        \"name\": \"daydien\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/gis/datastores/demo_git/featuretypes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"gis",
+								"datastores",
+								"demo_git",
+								"featuretypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
