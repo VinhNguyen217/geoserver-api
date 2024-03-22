@@ -390,6 +390,203 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "layer",
+			"item": [
+				{
+					"name": "get list of layers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "text/html"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/layers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"layers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add layer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"featureType\": {\r\n        \"name\": \"khu_dc\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/gis/datastores/gis/featuretypes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"gis",
+								"datastores",
+								"gis",
+								"featuretypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update layer",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"featureType\": {\r\n        \"name\": \"khu_địa_chính\",\r\n        \"title\": \"khu_dc_abc\",\r\n        \"abstract\": \"An updated feature type\",\r\n        \"enabled\": true\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/geoserver/rest/workspaces/gis/datastores/gis/featuretypes/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"workspaces",
+								"gis",
+								"datastores",
+								"gis",
+								"featuretypes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete layer",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{user}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/geoserver/rest/layers/khu_địa_chính",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"geoserver",
+								"rest",
+								"layers",
+								"khu_địa_chính"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
